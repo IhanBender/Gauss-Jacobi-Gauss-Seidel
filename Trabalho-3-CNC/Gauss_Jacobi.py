@@ -4,23 +4,23 @@ import numpy as np
 from numpy import linalg  
 
 def teste1():
-    return jacobi(np.matrix([[10,1],[1,8]]),    \
-    np.matrix([[23],[26]]),np.matrix([[0],[0]]),0.01, 10)
+    return gauss_jacobi(np.matrix([[10,1],[1,8]]),    \
+    np.matrix([[23],[26]]),np.matrix([[0],[0]]),0.00001, 100)
 
 
-def jacobi(A,b,x0,tol,N):  
+def gauss_jacobi(A,b,x0,tol,N):  
     #preliminares  
     A = A.astype('double')  
     b = b.astype('double')  
     x0 = x0.astype('double')  
 
-    m=np.shape(A)[1]  
     #test for graphic representation
+    m=np.shape(A)[1]  
     if m != 2:
         raise NameError('Numero de enquações diferente de dois.') 
 
     n=np.shape(A)[0]
-    x = np.zeros(n)  
+    x = np.zeros(n)
     it = 0  
 
     #grafico
